@@ -210,7 +210,15 @@ section h2 {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo { position: relative; overflow: hidden; }
+.photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 .tag-ask { background: var(--walnut); }
 .card-body { padding: 1rem 1.1rem 1.2rem; }
 .card h3 { font-size: 1.7rem; letter-spacing: 0.04em; margin-bottom: 0.3rem; text-transform: uppercase; }
@@ -319,6 +327,17 @@ address { font-style: normal; }
 .buy-box.on-light a { color: var(--rust); }
 .buy-box.on-light a:hover { color: var(--walnut); }
 .cta-line { margin-top: 2.5rem; }
+.contact-lines { margin-top: 0.6rem; font-size: 1.25rem; }
+.hours-line { margin-top: 0.6rem; font-size: 1rem; }
+.hours {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.2rem 1.25rem;
+  margin: 0.9rem 0;
+  font-size: 1.05rem;
+}
+.hours dt { font-weight: 700; }
+.hours dd { margin: 0; }
 
 /* Footer */
 footer {
