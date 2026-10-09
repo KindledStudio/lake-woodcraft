@@ -22,6 +22,10 @@ body {
   font-size: 1.2rem;
   font-weight: 700;
   line-height: 1.6;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
   color: var(--saw-black);
   background: var(--birch);
 }
@@ -35,6 +39,8 @@ h1, h2, h3 {
 
 a { color: var(--rust); }
 a:hover { color: var(--walnut); }
+
+main { flex: 1 0 auto; }
 
 .wrap {
   max-width: var(--max);
@@ -205,8 +211,7 @@ section h2 {
   text-transform: uppercase;
 }
 .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.card:nth-child(2) .photo { background: var(--pine); }
-.card:nth-child(3) .photo { background: var(--steel); }
+.tag-ask { background: var(--walnut); }
 .card-body { padding: 1rem 1.1rem 1.2rem; }
 .card h3 { font-size: 1.7rem; letter-spacing: 0.04em; margin-bottom: 0.3rem; text-transform: uppercase; }
 .card p { font-size: 0.98rem; color: #4a4036; }
@@ -268,6 +273,42 @@ address { font-style: normal; }
 .about p { margin-bottom: 1rem; }
 .about .btn { margin-top: 0.5rem; }
 
+.two-col.teaser { grid-template-columns: 0.7fr 1.3fr; align-items: center; }
+.pull {
+  font-family: var(--text);
+  font-size: 1.5rem;
+  line-height: 1.35;
+  border-left: 4px solid var(--rust);
+  padding-left: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+/* About: how it's made */
+.process { background: #ebe0cb; }
+.steps {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.steps li {
+  background: var(--birch);
+  border: 1px solid #d6c8ac;
+  border-top: 4px solid var(--rust);
+  border-radius: 6px;
+  padding: 1.25rem 1.3rem 1.4rem;
+}
+.step-num {
+  display: block;
+  font-family: var(--display);
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--rust);
+}
+.steps h3 { font-size: 1.8rem; letter-spacing: 0.04em; text-transform: uppercase; margin: 0.3rem 0; }
+.steps p { font-size: 1rem; color: #4a4036; }
+
 /* Contact page + shared helper */
 .contact { background: var(--birch); }
 .buy-box.on-light {
@@ -300,8 +341,9 @@ footer strong {
 }
 
 @media (max-width: 720px) {
-  .feature, .two-col { grid-template-columns: 1fr; }
-  .photo.portrait { aspect-ratio: 4 / 3; }
+  .feature, .two-col, .two-col.teaser { grid-template-columns: 1fr; }
+  .photo.portrait { aspect-ratio: 3 / 4; max-width: 340px; }
+  .photo.portrait img { object-position: center top; }
 }
 
 @media (max-width: 560px) {
