@@ -339,6 +339,57 @@ address { font-style: normal; }
 .hours dt { font-weight: 700; }
 .hours dd { margin: 0; }
 
+/* Pop-up sheet (phone + directions) */
+dialog.sheet {
+  border: 0;
+  border-radius: 14px;
+  padding: 1.4rem 1.25rem 1rem;
+  width: min(92vw, 360px);
+  background: var(--birch);
+  color: var(--saw-black);
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+dialog.sheet::backdrop { background: rgba(38, 32, 25, 0.6); }
+.sheet-title {
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.sheet-sub { margin: 0.2rem 0 1.1rem; color: #4a4036; font-size: 1.05rem; }
+.sheet-actions { display: grid; gap: 0.6rem; }
+.sheet-btn {
+  display: block;
+  padding: 0.85rem 1rem;
+  border: 2px solid var(--saw-black);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--saw-black);
+  font-family: var(--display);
+  font-size: 1.4rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.sheet-btn:hover { background: var(--saw-black); color: var(--birch); }
+.sheet-btn-primary { background: var(--rust); border-color: var(--rust); color: var(--birch); }
+.sheet-btn-primary:hover { background: var(--walnut); border-color: var(--walnut); color: var(--birch); }
+.sheet-cancel {
+  margin-top: 0.7rem;
+  padding: 0.6rem 1rem;
+  border: 0;
+  background: none;
+  color: var(--steel);
+  font-family: var(--text);
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.sheet-cancel:hover { color: var(--saw-black); }
+@media (max-width: 560px) {
+  dialog.sheet { margin: auto auto 1rem; } /* sits at the bottom on phones */
+}
+
 /* Footer */
 footer {
   background: var(--saw-black);
