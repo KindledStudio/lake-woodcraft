@@ -291,6 +291,23 @@ address { font-style: normal; }
   margin-bottom: 1.25rem;
 }
 
+/* Pieces page: extra notes under the grid */
+.note-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+.note-box {
+  background: var(--birch);
+  border: 1px solid #d6c8ac;
+  border-left: 4px solid var(--rust);
+  border-radius: 6px;
+  padding: 1.1rem 1.3rem 1.2rem;
+}
+.note-box h3 { font-size: 1.6rem; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.3rem; }
+.note-box p { font-size: 1rem; color: #4a4036; }
+
 /* About: how it's made */
 .process { background: #ebe0cb; }
 .steps {
