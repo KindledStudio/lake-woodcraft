@@ -1,0 +1,313 @@
+/* Lake Woodcraft — simple one-page site */
+:root {
+  --saw-black: #262019;
+  --birch: #F3EBDC;
+  --walnut: #8A5A34;
+  --rust: #B9541F;
+  --pine: #3D5736;
+  --steel: #6E6A60;
+  --max: 960px;
+
+  /* Brand typefaces (Adobe Fonts), with Google Fonts stand-ins until the Adobe kit is linked */
+  --display: "alternate-gothic-no-3-d", "League Gothic", "Arial Narrow", Impact, sans-serif;
+  --text: "chaparral-pro", "Alegreya", Georgia, serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--text);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--saw-black);
+  background: var(--birch);
+}
+
+h1, h2, h3 {
+  font-family: var(--display);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+
+a { color: var(--rust); }
+a:hover { color: var(--walnut); }
+
+.wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Header */
+.site-header {
+  background: var(--saw-black);
+  color: var(--birch);
+  border-bottom: 4px solid var(--rust);
+}
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+  flex-wrap: wrap;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--birch);
+  text-decoration: none;
+}
+.brand-name {
+  font-family: var(--display);
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.brand-name span {
+  font-family: var(--text);
+  text-transform: none;
+  letter-spacing: 0;
+  color: #d9c9a8;
+}
+nav a {
+  color: var(--birch);
+  text-decoration: none;
+  margin-left: 1.25rem;
+  font-size: 1rem;
+}
+nav a:hover { color: #e08a55; }
+nav a[aria-current="page"] {
+  color: #e08a55;
+  border-bottom: 2px solid var(--rust);
+  padding-bottom: 2px;
+}
+
+/* Hero */
+.hero {
+  background: var(--birch);
+  color: var(--saw-black);
+  text-align: center;
+  padding: 3rem 0 4.5rem;
+  border-bottom: 1px solid #d6c8ac;
+}
+.hero-logo {
+  display: block;
+  width: min(380px, 80vw);
+  height: auto;
+  margin: 0 auto 0.5rem;
+  mix-blend-mode: multiply; /* lets a white logo background blend into the cream */
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.hero p {
+  max-width: 34rem;
+  margin: 1rem auto 2rem;
+  color: #4a4036;
+}
+.btn {
+  display: inline-block;
+  background: var(--rust);
+  color: var(--birch);
+  padding: 0.8rem 1.6rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: var(--display);
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.btn:hover { background: var(--walnut); color: var(--birch); }
+.hero .btn { margin: 0.35rem 0.4rem; }
+.btn-outline {
+  background: transparent;
+  color: var(--saw-black);
+  border: 2px solid var(--saw-black);
+  padding: calc(0.8rem - 2px) calc(1.6rem - 2px);
+}
+.btn-outline:hover { background: var(--saw-black); color: var(--birch); }
+.btn-dark { background: var(--saw-black); }
+.btn-dark:hover { background: var(--rust); }
+
+/* Inner page title band */
+.page-hero {
+  background: var(--saw-black);
+  color: var(--birch);
+  text-align: center;
+  padding: 3.5rem 0;
+  border-bottom: 4px solid var(--rust);
+}
+.page-hero h1 {
+  font-size: clamp(2.8rem, 8vw, 4.2rem);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.page-hero p {
+  max-width: 34rem;
+  margin: 0.75rem auto 0;
+  color: #d9d0bd;
+}
+
+/* Sections */
+section { padding: 4rem 0; }
+section h2 {
+  font-size: 2.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  color: var(--saw-black);
+}
+.rule {
+  width: 64px;
+  height: 4px;
+  background: var(--rust);
+  margin-bottom: 1.5rem;
+  border: 0;
+}
+.lead { max-width: 40rem; }
+
+/* Products */
+.products { background: #ebe0cb; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+.card {
+  background: var(--birch);
+  border: 1px solid #d6c8ac;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.photo {
+  aspect-ratio: 4 / 3;
+  background: var(--walnut);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--birch);
+  font-family: var(--display);
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.card:nth-child(2) .photo { background: var(--pine); }
+.card:nth-child(3) .photo { background: var(--steel); }
+.card-body { padding: 1rem 1.1rem 1.2rem; }
+.card h3 { font-size: 1.7rem; letter-spacing: 0.04em; margin-bottom: 0.3rem; text-transform: uppercase; }
+.card p { font-size: 0.98rem; color: #4a4036; }
+.tag {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-size: 1.05rem;
+  font-family: var(--display);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--pine);
+  color: var(--birch);
+  padding: 0.2rem 0.6rem;
+  border-radius: 3px;
+}
+
+/* Where to buy */
+.buy { background: var(--pine); color: var(--birch); }
+.buy h2 { color: var(--birch); }
+.buy .rule { background: var(--birch); }
+.buy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.buy-box {
+  background: rgba(0, 0, 0, 0.2);
+  border-left: 4px solid var(--birch);
+  padding: 1.3rem 1.5rem;
+  border-radius: 4px;
+}
+.buy-box h3 { font-size: 1.7rem; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.6rem; }
+.buy-box a { color: var(--birch); font-weight: 600; }
+.buy-box a:hover { color: #f0c9a8; }
+address { font-style: normal; }
+
+/* Home: featured piece + maker teaser */
+.feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+.feature h3 { font-size: 2.2rem; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.feature p { margin-bottom: 1.25rem; }
+.maker-teaser { background: var(--birch); }
+.maker-teaser .lead { margin-bottom: 1.5rem; }
+
+/* About page */
+.about { background: var(--birch); }
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+.photo.portrait { aspect-ratio: 3 / 4; border-radius: 6px; }
+.about p { margin-bottom: 1rem; }
+.about .btn { margin-top: 0.5rem; }
+
+/* Contact page + shared helper */
+.contact { background: var(--birch); }
+.buy-box.on-light {
+  background: #ebe0cb;
+  border-left: 4px solid var(--rust);
+  color: var(--saw-black);
+}
+.buy-box.on-light a { color: var(--rust); }
+.buy-box.on-light a:hover { color: var(--walnut); }
+.cta-line { margin-top: 2.5rem; }
+
+/* Footer */
+footer {
+  background: var(--saw-black);
+  color: #b9b0a0;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.95rem;
+  border-top: 4px solid var(--rust);
+}
+footer p { margin-bottom: 0.4rem; }
+footer a { color: var(--birch); text-decoration: none; }
+footer a:hover { color: #e08a55; }
+footer strong {
+  color: var(--birch);
+  font-family: var(--display);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 720px) {
+  .feature, .two-col { grid-template-columns: 1fr; }
+  .photo.portrait { aspect-ratio: 4 / 3; }
+}
+
+@media (max-width: 560px) {
+  .site-header .wrap { justify-content: center; }
+  nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.2rem 0; }
+  nav a { margin: 0 0.6rem; font-size: 1.1rem; }
+  section { padding: 3rem 0; }
+  .hero { padding: 3rem 0 3.5rem; }
+}
